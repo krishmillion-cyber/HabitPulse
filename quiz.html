@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Habit Pulse Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+<h1>Habit Pulse</h1>
+
+
+<div class="navbar">
+    <a href="index.html" class="btn1">Home Page</a>
+    <a href="expertadvice+tips.html" class="btn2">Expert Advice+Tips</a>
+    <a href="logging+monitoring.html" class="btn3">Logging+Monitoring</a>
+    <a href="quiz.html" class="btn4">Quiz</a>
+</div>
+
+<h2>Healthy Habits Quiz</h2>
+
+<p class="intro">
+    Test your knowledge of sleep, screen time and nutrition!
+    Answer all 8 questions to see your final score.
+</p>
+
+<div class="quiz-container">
+
+    <div class="question-card">
+        <h3>Question 1</h3>
+        <p>How many hours of sleep should teenagers aged 13 to 18 get every night?</p>
+        <button class="quiz-option" data-answer="A">A. 5 to 6 hours</button>
+        <button class="quiz-option" data-answer="B">B. 8 to 10 hours</button>
+        <button class="quiz-option" data-answer="C">C. 11 to 12 hours</button>
+        <button class="quiz-option" data-answer="D">D. 6 to 7 hours</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 2</h3>
+        <p>Which substance should teenagers limit, especially in the evening, to support better sleep?</p>
+        <button class="quiz-option" data-answer="A">A. Caffeine</button>
+        <button class="quiz-option" data-answer="B">B. Protein</button>
+        <button class="quiz-option" data-answer="C">C. Calcium</button>
+        <button class="quiz-option" data-answer="D">D. Fibre</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 3</h3>
+        <p>Which of the following is recommended before bedtime?</p>
+        <button class="quiz-option" data-answer="A">A. Using electronic devices</button>
+        <button class="quiz-option" data-answer="B">B. Drinking caffeinated drinks</button>
+        <button class="quiz-option" data-answer="C">C. Avoiding electronic devices</button>
+        <button class="quiz-option" data-answer="D">D. Increasing screen brightness</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 4</h3>
+        <p>What is the recommended daily limit for recreational screen time in the advice provided?</p>
+        <button class="quiz-option" data-answer="A">A. 5 hours</button>
+        <button class="quiz-option" data-answer="B">B. 4 hours</button>
+        <button class="quiz-option" data-answer="C">C. 3 hours</button>
+        <button class="quiz-option" data-answer="D">D. 2 hours</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 5</h3>
+        <p>According to the 20-20-20 rule, how long should a break be after every 20 minutes of screen use?</p>
+        <button class="quiz-option" data-answer="A">A. 10 seconds</button>
+        <button class="quiz-option" data-answer="B">B. 20 seconds</button>
+        <button class="quiz-option" data-answer="C">C. 30 seconds</button>
+        <button class="quiz-option" data-answer="D">D. 1 minute</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 6</h3>
+        <p>How much physical activity should teenagers aim for daily?</p>
+        <button class="quiz-option" data-answer="A">A. At least 1 hour</button>
+        <button class="quiz-option" data-answer="B">B. 15 minutes</button>
+        <button class="quiz-option" data-answer="C">C. 30 minutes</button>
+        <button class="quiz-option" data-answer="D">D. 2 hours</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 7</h3>
+        <p>How many portions of fruits and vegetables should teenagers aim to consume daily?</p>
+        <button class="quiz-option" data-answer="A">A. 2 portions</button>
+        <button class="quiz-option" data-answer="B">B. 3 portions</button>
+        <button class="quiz-option" data-answer="C">C. 5 portions</button>
+        <button class="quiz-option" data-answer="D">D. 8 portions</button>
+    </div>
+
+    <div class="question-card">
+        <h3>Question 8</h3>
+        <p>How many balanced meals should teenagers aim to eat every day?</p>
+        <button class="quiz-option" data-answer="A">A. 1 meal</button>
+        <button class="quiz-option" data-answer="B">B. 3 meals</button>
+        <button class="quiz-option" data-answer="C">C. 4 meals</button>
+        <button class="quiz-option" data-answer="D">D. 6 meals</button>
+    </div>
+
+</div>
+
+<div class="result">
+    <h2 id="congratulations">Congratulations!</h2>
+    <p id="final-score">Complete all 8 questions to see your results.</p>
+</div>
+<footer>
+<a href="index.html" class="foo1">Home Page</a>
+    <a href="contact.html" class="foo2">Contact Information</a>
+<a href="quiz.html" class="foo4">Top of Page<a/>
+</footer>
+<script>
+    let score = 0;
+    let answered = 0;
+
+    document.querySelectorAll(".question-card").forEach(card => {
+
+        const correctAnswer = {
+            "Question 1": "B",
+            "Question 2": "A",
+            "Question 3": "C",
+            "Question 4": "D",
+            "Question 5": "B",
+            "Question 6": "A",
+            "Question 7": "C",
+            "Question 8": "B"
+        };
+
+        const question = card.querySelector("h3").textContent;
+
+        card.querySelectorAll(".quiz-option").forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                if (card.dataset.answered === "true") {
+                    return;
+                }
+
+                card.dataset.answered === "true";
+                answered++;
+
+                if (this.dataset.answer === correctAnswer[question]) {
+                    this.classList.add("correct");
+                    score++;
+                } else {
+                    this.classList.add("wrong");
+
+                    card.querySelectorAll(".quiz-option").forEach(option => {
+                        if (option.dataset.answer === correctAnswer[question]) {
+                            option.classList.add("correct");
+                        }
+                    });
+                }
+
+                card.querySelectorAll(".quiz-option").forEach(option => {
+                    option.disabled = true;
+                });
+
+                if (answered === 8) {
+                    document.getElementById("congratulations").textContent =
+                        "Congratulations! You completed the quiz!";
+
+                    document.getElementById("final-score").textContent =
+                        "Your final score is " + score + " out of 8!";
+
+                    document.querySelector(".result").classList.add("completed");
+                }
+            });
+
+        });
+    });
+</script>
+
+</body>
+</html>
