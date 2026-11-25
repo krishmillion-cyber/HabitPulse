@@ -56,6 +56,25 @@ p {
     margin-top: 40px;
     flex-wrap: wrap;
 }
+
+.lbutton {
+    background-color: white;
+    color: #007bff;
+    font-size: 20px;
+    padding: 15px 35px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.lbutton:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
 .btn1,
 .btn2,
 .btn4 {
@@ -78,21 +97,4 @@ p {
     border: 2px solid #007bff;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.lbutton {
-    background-color: white;
-    color: #007bff;
-    font-size: 20px;
-    padding: 15px 35px;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    text-align: center;
-}
-
-.lbutton:hover {
-    background-color: #007bff;
-    color: white;
 }
